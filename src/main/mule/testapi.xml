@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="38808f0f-d054-4cee-9e43-5f93a72a1022" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="testapiFlow" doc:id="9bc5392c-b2f3-4b28-aa8e-29a3b80bbc64" >
+		<http:listener doc:name="Listener" doc:id="e85ca8b9-cfd9-400d-a701-6843872f0e30" config-ref="HTTP_Listener_config" path="/test"/>
+		<set-payload value='#["This is a test deployment to cloudHub using Mule-maven-plugin"]' doc:name="Set Payload" doc:id="4366b985-e4bd-47c9-adbb-0b3b30085670" />
+	</flow>
+</mule>
